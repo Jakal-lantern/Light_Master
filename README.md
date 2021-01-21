@@ -1,3 +1,3 @@
-# Light_Master
+# Light Master
 
 A legit cheat base
