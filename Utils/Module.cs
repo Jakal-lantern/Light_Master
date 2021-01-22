@@ -10,10 +10,10 @@ namespace LightCheat.Utils
         #region // Storage
         
         // <inheritdoc cref="Process"/>
-        private Process Process { get; set; }
+        public Process Process { get; private set; }
 
         // <inheritdoc cref="ProcessModule"/>
-        private ProcessModule ProcessModule { get; set; }
+        public ProcessModule ProcessModule { get; private set; }
 
         #endregion
 

@@ -48,5 +48,29 @@ namespace LightCheat.Utils
             }
             return true;
         }
+
+        // Read process memory
+        public static T Read<T>(this System.Diagnostics.Process process, IntPtr lpBaseAddress)
+            where T : unmanaged
+        {
+            return Read<T>(process.Handle, lpBaseAddress);
+        }
+
+        // Read process memory from module
+        public static T Read<T>(this Module module, int offset)
+            where T : unmanaged
+        {
+            return Read<T>(module.Process.Handle, module.ProcessModule.BaseAddress + offset);
+        }
+
+        // Read process memory
+        public static T Read<T>(IntPtr hProcess, IntPtr lpBaseAddress)
+            where T : unmanaged
+        {
+            var size = Marshal.SizeOf<T>();
+            var buffer = (object)default(T);
+            Kernel32.ReadProcessMemory(hProcess, lpBaseAddress, buffer, size, out var lpNumberOfBytesRead);
+            return lpNumberOfBytesRead == size ? (T)buffer : default;
+        }
     }
 }
