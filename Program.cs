@@ -1,6 +1,8 @@
 ﻿using System;
+using LightCheat.Data;
+using LightCheat.Gfx;
 
-public class LightCheat
+namespace LightCheat
 {
 	public class Program :
 		System.Windows.Application,

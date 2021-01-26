@@ -16,7 +16,7 @@ namespace LightCheat.Math
 
         public static Vector3 operator +(Vector3 left, Vector3 right)
         {
-            return new Vector3(left.X + right.x, left.Y + right.y, left.Z + right.z);
+            return new Vector3(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
     }
 }
