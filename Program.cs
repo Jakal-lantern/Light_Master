@@ -9,13 +9,18 @@ public class LightCheat
         #region // Entry Point
 
         // Start program
+        [STAThread]
         public static void Main() => new Program().Run();
 
         #endregion
 
         #region // Storage
+
         private GameProcess GameProcess { get; set; }
         private GameData GameData { get; set; }
+        private WindowOverlay WindowOverlay { get; set; }
+
+        #endregion
 
         #region // Contructor
 
@@ -31,14 +36,19 @@ public class LightCheat
         {
             GameProcess = new GameProcess();
             GameData = new GameData(GameProcess);
+            WindowOverlay = new WindowOverlay(GameProcess);
 
             GameProcess.Start();
             GameData.Start();
+            WindowOverlay.Start();
         }
 
         // Close Function
         public void Dispose()
         {
+            WindowOverlay.Dispose();
+            WindowOverlay = default;
+
             GameData.Dispose();
             GameData = default;
 

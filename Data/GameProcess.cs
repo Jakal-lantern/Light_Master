@@ -81,9 +81,10 @@ namespace LightCheat.Data
                 InvalidateWindow();
             }
 
-            Console.WriteLine(IsValid
-                ? $"0x{(int)Process.Handle:X8} {WindowRectangleClient.X} {WindowRectangleClient.Y} {WindowRectangleClient.Width} {WindowRectangleClient.Height}"
-                : "Game process invalid");
+            // Console debug
+            //Console.WriteLine(IsValid
+            //    ? $"0x{(int)Process.Handle:X8} {WindowRectangleClient.X} {WindowRectangleClient.Y} {WindowRectangleClient.Width} {WindowRectangleClient.Height}"
+            //    : "Game process invalid");
         }
 
         // Invalidate all game modules
