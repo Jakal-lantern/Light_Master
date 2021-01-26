@@ -13,6 +13,10 @@ public class LightCheat
 
         #endregion
 
+        #region // Storage
+        private GameProcess GameProcess { get; set; }
+        private GameData GameData { get; set; }
+
         #region // Contructor
 
         public Program()
@@ -25,11 +29,21 @@ public class LightCheat
         // Startup Function
         public void Ctor()
         {
+            GameProcess = new GameProcess();
+            GameData = new GameData(GameProcess);
+
+            GameProcess.Start();
+            GameData.Start();
         }
 
         // Close Function
         public void Dispose()
         {
+            GameData.Dispose();
+            GameData = default;
+
+            GameProcess.Dispose();
+            GameProcess = default;
         }
 
         #endregion
