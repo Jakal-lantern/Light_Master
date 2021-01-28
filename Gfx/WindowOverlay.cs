@@ -16,6 +16,8 @@ namespace LightCheat.Gfx
     {
         #region // Storage
 
+        protected override string ThreadName => nameof(WindowOverlay);
+
         protected override TimeSpan ThreadFrameSleep { get; set; } = new TimeSpan(0, 0, 0, 0, 500);
 
         private GameProcess GameProcess { get; set; }

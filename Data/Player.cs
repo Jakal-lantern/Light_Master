@@ -1,5 +1,5 @@
 using System;
-using LightCheat.Math;
+using Microsoft.DirectX;
 using LightCheat.Utils;
 
 namespace LightCheat.Data

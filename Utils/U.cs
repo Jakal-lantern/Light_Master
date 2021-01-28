@@ -5,7 +5,9 @@ using LightCheat.Sys;
 
 namespace LightCheat.Utils
 {
-    // Helper class
+    /*
+     * Helper class
+     */
     public static class U
     {
         // Get window client rectangle
@@ -32,6 +34,12 @@ namespace LightCheat.Utils
                 .FirstOrDefault(a => string.Equals(a.ModuleName.ToLower(), moduleName.ToLower()));
         }
 
+        // Check if value is infinity or NaN
+        public static bool IsInfinityOrNaN(this float value)
+        {
+            return float.IsNaN(value) || float.IsInfinity(value);
+        }
+
         // Get if process is running
         public static bool IsRunning(this System.Diagnostics.Process process)
         {
@@ -48,6 +56,12 @@ namespace LightCheat.Utils
                 return false;
             }
             return true;
+        }
+
+        // Check if vector is valid to draw in screen space
+        public static bool IsValidScreen(this Microsoft.DirectX.Vector3 value)
+        {
+            return !value.X.IsInfinityOrNaN() && !value.Y.IsInfinityOrNaN() && value.Z >= 0 && value.Z < 1;
         }
 
         // Read process memory
