@@ -16,6 +16,8 @@ namespace LightCheat.Gfx
     {
         #region // Storage
 
+        protected override string ThreadName => nameof(WindowOverlay);
+
         protected override TimeSpan ThreadFrameSleep { get; set; } = new TimeSpan(0, 0, 0, 0, 500);
 
         private GameProcess GameProcess { get; set; }
@@ -51,7 +53,7 @@ namespace LightCheat.Gfx
             {
                 var exStyle = User32.GetWindowLong(Window.Handle, User32.GWL_EXSTYLE);
                 exStyle |= User32.WS_EX_LAYERED;
-                exStyle |= User32.WS_EX_TRANSpARENT;
+                exStyle |= User32.WS_EX_TRANSPARENT;
 
                 // Make the window border completely transparent
                 User32.SetWindowLong(Window.Handle, User32.GWL_EXSTYLE, (IntPtr)exStyle);
@@ -92,7 +94,7 @@ namespace LightCheat.Gfx
                 Top = -1,
                 Bottom = -1
             };
-            Dwmapi.DwmExtendFrameIntoClientarea(Window.Handle, ref margins);
+            Dwmpai.DwmExtendFrameIntoClientArea(Window.Handle, ref margins);
         }
 
         protected override void FrameAction()

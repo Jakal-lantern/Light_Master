@@ -1,6 +1,8 @@
 ﻿using System;
+using LightCheat.Data;
+using LightCheat.Gfx;
 
-public class LightCheat
+namespace LightCheat
 {
 	public class Program :
 		System.Windows.Application,
@@ -19,6 +21,7 @@ public class LightCheat
         private GameProcess GameProcess { get; set; }
         private GameData GameData { get; set; }
         private WindowOverlay WindowOverlay { get; set; }
+        private Graphics Graphics { get; set; }
 
         #endregion
 
@@ -37,15 +40,20 @@ public class LightCheat
             GameProcess = new GameProcess();
             GameData = new GameData(GameProcess);
             WindowOverlay = new WindowOverlay(GameProcess);
+            Graphics = new Graphics(WindowOverlay, GameProcess, GameData);
 
             GameProcess.Start();
             GameData.Start();
             WindowOverlay.Start();
+            Graphics.Start();
         }
 
         // Close Function
         public void Dispose()
         {
+            Graphics.Dispose();
+            Graphics = default;
+
             WindowOverlay.Dispose();
             WindowOverlay = default;
 

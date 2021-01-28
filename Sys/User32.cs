@@ -41,6 +41,22 @@ namespace LightCheat.Sys
         // Retrieves information about the specified window
         // The function also retrieves the 32-bit (DWORD) value at the specified offset into the extra window memory
         [DllImport("user32.dll", SetLastError = true)]
+        public static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
+
+        // Retrieves a handle to the top-level window whose class name and window name match the specified strings
+        // This function does not search child windows
+        // This function does not perform a case-sensitive search
+        // To search child windows, beginning with a specified child window, use the FindWindowEx function
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        //Sets the opacity and transparency color key of a layered window
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool SetLayeredWindowAttributes(IntPtr hWnd, uint crKey, byte bAlpha, uint dwFlags);
+
+        // Changes an attribute of the specified window
+        // The function also sets the 32-bit (long_ value at the specified offset into the extra window memory
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
     }
 }
