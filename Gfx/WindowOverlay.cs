@@ -107,8 +107,6 @@ namespace LightCheat.Gfx
         {
             System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
-                Window.BackColor = Color.Blue;  // TODO: Temporary
-
                 if (Window.Location != windowRectangleClient.Location || Window.Size != windowRectangleClient.Size)
                 {
                     if (windowRectangleClient.Width > 0 && windowRectangleClient.Height > 0)

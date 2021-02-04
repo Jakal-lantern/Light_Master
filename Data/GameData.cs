@@ -1,3 +1,5 @@
+using System.Linq;
+using LightCheat.Data.Internal;
 using LightCheat.Utils;
 
 namespace LightCheat.Data
@@ -17,6 +19,8 @@ namespace LightCheat.Data
         // <inheritdoc cref="Player"/>
         public Player Player { get; set; }
 
+        public Entity[] Entities { get; private set; }
+
         #endregion
 
         #region // Constructor
@@ -25,12 +29,14 @@ namespace LightCheat.Data
         {
             GameProcess = gameProcess;
             Player = new Player();
+            Entities = Enumerable.Range(0, 64).Select(index => new Entity(index)).ToArray();
         }
 
         public override void Dispose()
         {
             base.Dispose();
 
+            Entities = default;
             Player = default;
             GameProcess = default;
         }
@@ -45,6 +51,10 @@ namespace LightCheat.Data
             }
 
             Player.Update(GameProcess);
+            foreach (var entity in Entities)
+            {
+                entity.Update(GameProcess);
+            }
         }
     }
 }

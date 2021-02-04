@@ -4,9 +4,9 @@ using LightCheat.Gfx;
 
 namespace LightCheat
 {
-	public class Program :
-		System.Windows.Application,
-		IDisposable
+    public class Program :
+        System.Windows.Application,
+        IDisposable
     {
         #region // Entry Point
 

@@ -62,8 +62,19 @@
   <ItemGroup>
     <Compile Include="Data\GameData.cs" />
     <Compile Include="Data\GameProcess.cs" />
-    <Compile Include="Data\Player.cs" />
+    <Compile Include="Data\Internal\Entity.cs" />
+    <Compile Include="Data\Internal\EntityBase.cs" />
+    <Compile Include="Data\Internal\Player.cs" />
+    <Compile Include="Data\Raw\matrix3x4_t.cs" />
+    <Compile Include="Data\Raw\mstudiobbox_t.cs" />
+    <Compile Include="Data\Raw\mstudiobone_t.cs" />
+    <Compile Include="Data\Raw\mstudiohitboxset_t.cs" />
+    <Compile Include="Data\Raw\studiohdr_t.cs" />
+    <Compile Include="Data\Raw\Team.cs" />
+    <Compile Include="Features\EspAimCrosshair.cs" />
+    <Compile Include="Features\EspSkeleton.cs" />
     <Compile Include="Gfx\DeviceExstensions.cs" />
+    <Compile Include="Gfx\GfxMath.cs" />
     <Compile Include="Gfx\Graphics.cs" />
     <Compile Include="Gfx\WindowOverlay.cs" />
     <Compile Include="Offsets.cs" />
@@ -83,8 +94,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Math\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

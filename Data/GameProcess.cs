@@ -15,7 +15,7 @@ namespace LightCheat.Data
 
         private const string NAME_PROCESS = "csgo";
 
-        private const string NAME_MODULE_CLIENT = "client_panorama.dll";
+        private const string NAME_MODULE_CLIENT = "client_panorama.dll";    // Could be 'client.dll' or 'client_panorama.dll'
 
         private const string NAME_MODULE_ENGINE = "engine.dll";
 
@@ -42,7 +42,7 @@ namespace LightCheat.Data
 
         // Game window handle
         private IntPtr WindowHwnd { get; set; }
-        
+
         // Game window client rectangle
         public Rectangle WindowRectangleClient { get; private set; }
 

@@ -2,6 +2,7 @@
 using System.Windows.Threading;
 using Microsoft.DirectX;
 using Microsoft.DirectX.Direct3D;
+using LightCheat.Features;
 using LightCheat.Data;
 using LightCheat.Utils;
 
@@ -119,6 +120,8 @@ namespace LightCheat.Gfx
         {
             DrawWindowBorder();
             DrawFps();
+            EspAimCrosshair.Draw(this);
+            EspSkeleton.Draw(this);
         }
 
         // Draw fps
@@ -130,7 +133,7 @@ namespace LightCheat.Gfx
         // Draw window border
         private void DrawWindowBorder()
         {
-            Device.DrawPolyLine(new[]
+            this.DrawPolyLineScreen(new[]
             {
                 new Vector3(0, 0, 0),
                 new Vector3(GameProcess.WindowRectangleClient.Width - 1, 0, 0),
