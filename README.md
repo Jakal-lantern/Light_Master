@@ -1,3 +1,4 @@
 # Light Master
 
-Open source external cheat for high level competitive cheating
+Open Source External Cheat
+USE FOR REFERENCE ONLY
